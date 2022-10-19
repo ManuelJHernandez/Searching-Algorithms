@@ -1,1 +1,72 @@
+/* Searching-Algorithms/ /Assignment #3/ /CS 315/ /Manuel Hernandez and Adam Schwartz */
 
+#include <stdio.h> 
+#include <stdlib.h>
+
+int main() { int count=0; //tracks size of arr
+
+// Calculate the time taken by fun()
+
+  clock t t;
+  t = clock();
+  
+    fun();        // replace fun() with your search functions
+    
+   t = clock() - t; 
+   double time_taken = ((double)t)/CLOCKS_PER_SEC;  // in seconds
+   
+   printf("fun() took % seconds to execute \n", time_taken);
+   return 0; 
+   
+ /* ---functions for quick sorting algorithm--- */
+ 
+ //function to swap elements
+ 
+ void swap(int*a,int*b){
+ 
+  int t = *a;
+  
+  a* = *b;
+  
+  *b = t;
+  }
+  
+  //function to find the partition position
+  
+  int partition(int array[], int low, int high){
+    //select the rightmost element as pivot
+   
+  int pivot = array[high];
+    //pointer for greater element
+    
+   int i = (low - l);
+    //traverse each element of the array
+    //compare them with the pivot
+    
+ for(int j = low; j < high; j++){
+  if(array[j] <= pivot){
+      //if element smaller than pivot is found
+     //swap it with the greater element pointed byt i 
+     
+     i++;
+      //swap element at i with element at j 
+   swap(&array[i+l], &array[high]);
+      //return the partition point
+   return(i + l);
+  }
+  
+  void quickSort(int array[], int low, int(high){
+    if(low<high){
+      //find the pivot element such that
+    //elements smaller than pivot are on left of pivot
+      //elemnts greater than pivot are on a right of pivot
+    int pi = partition(array, low, high);
+        //recursive call on the left of pivot
+    quickSort(array, low, pi - l);
+        //recursive call on the right of pivot
+    quickSort(array, pi +l, high);
+    }
+  }
+  
+   
+   
