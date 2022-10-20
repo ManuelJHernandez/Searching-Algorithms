@@ -2,8 +2,35 @@
 
 #include <stdio.h> 
 #include <stdlib.h>
+#include <time.h>
 
 int main() { int count=0; //tracks size of arr
+
+
+
+// Creation of arrays
+int Size1, Size2;
+// the srand function allows for all values of the array to be different every time
+srand( time( NULL ) );
+// scanning the user values 
+printf("Please Enter a Number over 1000 for the Data Array\n");
+scanf("%d",&Size1);
+
+printf("Please Enter the Number 100 for the Key Array\n");
+scanf("%d",&Size2);
+
+//creation of arrays wiht given user inputs
+int Data_Array[Size1];
+int Keys_Array[Size2];
+
+//adding random integers in the array by looping through with a simple for loop
+for(int i=0 ; i < Size1 ; i++){
+    Data_Array[i]= rand()%99998 + 1;
+}
+
+for(int i=0; i < Size2; i++){
+    Keys_Array[i]= rand()%99998 + 1;   
+}
 
 // Calculate the time taken by fun()
 
