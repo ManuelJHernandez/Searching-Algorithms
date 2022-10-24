@@ -4,47 +4,48 @@
 #include <stdlib.h>
 #include <time.h>
 
-int main() { int count=0; //tracks size of arr
+void main() 
+{
+
+    char *name1 = "data";
+    int arraySize = 0;
+    int dataArraySize = getArraySize(arraySize, name1); 
+    int data_Array[dataArraySize];
+    makeArray(data_Array, dataArraysize, 0, 99999); /* generation of data array */
+    printf("Generating keys array\n\n");
+    char* name2 = "keys";
+    arraySize = 0; 
+    int keysArraySize = getArraySize(arraySize, name2);
+    int keys_Array[keysArraySize]; 
+    makeArray(keys_Array, keysArraySize, 0, 99999); /* generation of keys array */
+
+    printf("Sorting data now\n\n");
+    /* Implementation of QuickSort, and calculation of time */
+    clock_t t; 
+    t = clock();
+    quickSort(data_Array, 0, dataArraySize); /* calling of quickSort */
+    t = clock() - t; 
+    double time_elapsed1 = ((double)t)/CLOCKS_PER_SEC;
+    printf("Sorting took %f seconds to execute\n");
+    printf("Writing data and keys to files\n\n");
+
+    /* write data and keys array to file */
+    t = clock();
+    char* fileName1 = "dataStorage.txt";
+    writeToFile(fileName1, data_Array, dataArraySize);
+    char*fileName2 = "keysStorage.txt";
+    writeToFile(filename2, keys_Array, keysArraySize);
+    t = clock() -t; 
+    double time_elapsed2 = ((double)t)/CLOCKS_PER_SEC;
+    printf(Writing data to file took %f seconds to execute/n", time_taken2);
+    printf("Using Sequential Searching now\n\n");
 
 
 
-// Creation of arrays
-int Size1, Size2;
-// the srand function allows for all values of the array to be different every time
-srand( time( NULL ) );
-// scanning the user values 
-printf("Please Enter a Number over 1000 for the Data Array\n");
-scanf("%d",&Size1);
+/* Implementation of Search */
 
-printf("Please Enter the Number 100 for the Key Array\n");
-scanf("%d",&Size2);
 
-//creation of arrays wiht given user inputs
-int Data_Array[Size1];
-int Keys_Array[Size2];
 
-//adding random integers in the array by looping through with a simple for loop
-for(int i=0 ; i < Size1 ; i++){
-    Data_Array[i]= rand()%99998 + 1;
-}
-
-for(int i=0; i < Size2; i++){
-    Keys_Array[i]= rand()%99998 + 1;   
-}
-
-// Calculate the time taken by fun()
-
-  clock t t;
-  t = clock();
-  
-    fun();        // replace fun() with your search functions
-    
-   t = clock() - t; 
-   double time_taken = ((double)t)/CLOCKS_PER_SEC;  // in seconds
-   
-   printf("fun() took % seconds to execute \n", time_taken);
-   return 0; 
-   
  /* ---functions for quick sorting algorithm--- */
  
  //function to swap elements
